@@ -49,15 +49,15 @@ void AMyActor2345::MovePlatform(float DeltaTime)
 
 void AMyActor2345::RotatePlatform(float DeltaTime)
 {
-	UE_LOG(LogTemp, Display, TEXT("RotatePlatform"));
+	AddActorLocalRotation(RotationVelocity * DeltaTime);
 }
 
-bool AMyActor2345::ShouldPlatformReturn()
+bool AMyActor2345::ShouldPlatformReturn() const 
 {	
 	return GetDistanceMoved() > MoveDistance;
 }
 
-float AMyActor2345::GetDistanceMoved()
+float AMyActor2345::GetDistanceMoved() const
 {
 	return FVector::Dist(StartLocation, GetActorLocation());
 }
